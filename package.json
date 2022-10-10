@@ -34,7 +34,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Starter.git"
+        "url": "https://github.com/misshgan/ghost-theme-2.git"
     },
     "devDependencies": {
         "autoprefixer": "10.4.12",
