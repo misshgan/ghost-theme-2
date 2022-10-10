@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
 	<link rel="stylesheet" type="text/css" href="{{asset "built/main.css"}}" />
 
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+	<script src="{{asset "built/m-script.js"}}"></script>
 
     <title>{{meta_title}}</title>
 
@@ -17,12 +20,45 @@
 </head>
 <body>
 
-	<header>
-		<h1>Hello</h1>
+	<header class="header" >
+		<div class="header-background" style="background-image: url({{@site.cover_image}}); background-size: cover; background-position: center;"></div>
+		<div class="upper-header">
+			<div class="upper-header__logo-title">
+				{{#if @site.logo}}
+					<img class="upper-header__logo" src="{{@site.logo}}" alt="logo-img">
+				{{/if}}
+				<h1 class="upper-header__title">{{@site.title}}</h1>
+			</div>
+
+			<div class="upper-header__nav">
+				{{navigation}}
+			</div>
+			
+			<div class="upper-header__signup">
+				<span class="search-icon">{{search}}</span>
+				{{#if @site.members_enabled}}
+					{{#unless @member}}
+						<a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+					{{else}}
+						<a class="gh-head-button" href="#/portal/account" data-portal="account">Account</a>
+					{{/unless}}
+				{{/if}}
+			</div>
+		</div>
+		<div class="lower-header">
+			<div class="lower-header__text">
+				{{#if @site.title}}
+					<span class="lower-header__hello">👋🏻 hello</span>
+					<h1 class="lower-header__title">{{@site.title}}</h1>
+					<p class="lower-header__site-description">{{@site.description}}</p>
+				{{/if}}
+			</div>
+		</div>
 	</header>
 
 
 <script src="{{asset "built/jquery-3.4.1.min.js"}}"></script>
+<script src="{{asset "built/m-script.js"}}"></script>
 <script>
 $(document).ready(function () {
     // Mobile Menu Trigger
