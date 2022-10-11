@@ -1,4 +1,39 @@
 {{!< default}}
 
+<header class="header" >
+		<div class="header-background" style="background-image: url({{@site.cover_image}}); background-size: cover; background-position: center;"></div>
+		<div class="upper-header">
+			<div class="upper-header__logo-title">
+				{{#if @site.logo}}
+					<img class="upper-header__logo" src="{{@site.logo}}" alt="logo-img">
+				{{/if}}
+				<h1 class="upper-header__title">{{@site.title}}</h1>
+			</div>
 
+			<div class="upper-header__nav">
+				{{navigation}}
+			</div>
+			
+			<div class="upper-header__signup">
+				<span class="search-icon">{{search}}</span>
+				{{#if @site.members_enabled}}
+					{{#unless @member}}
+						<a class="gh-head-button" href="#/portal/signup" data-portal="signup">Subscribe</a>
+					{{else}}
+						<a class="gh-head-button" href="#/portal/account" data-portal="account">Account</a>
+					{{/unless}}
+				{{/if}}
+			</div>
+		</div>
+		<div class="lower-header">
+			<div class="lower-header__text">
+				{{#if @site.title}}
+					<span class="lower-header__hello">👋🏻 hello</span>
+					<h1 class="lower-header__title">{{@site.title}}</h1>
+					<p class="lower-header__site-description">{{@site.description}}</p>
+				{{/if}}
+			</div>
+		</div>
+	</header>
 
+{{> posts-block}}

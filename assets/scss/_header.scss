@@ -23,11 +23,11 @@
 
 .upper-header {
 	transform: translate3d(0, calc(var(--scrollTop) / 9), 0);
-
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 88.7%;
+	max-width: 1140px;
 	margin: 0 auto;
 	padding-top: 3rem;
 	position: relative;
@@ -107,6 +107,7 @@
 .lower-header {
 	margin: auto;
 	width: 70%;
+	max-width: 1140px;
 	position: relative;
 	z-index: 5;
 	transform: translate3d(0, calc(var(--scrollTop) / 9), 0);
@@ -143,12 +144,4 @@
 
 		color: #fff;
 	}
-}
-
-
-
-
-
-body {
-	height: 10000px;
 }
