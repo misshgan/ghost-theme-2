@@ -124,6 +124,15 @@
   color: #fff;
 }
 
+.footer {
+  margin: 0 auto;
+  margin-top: 10rem;
+  padding: 4rem 0;
+  width: 1140px;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 /*
 0 - 600 : Phone
 600 - 900 : Tablet portrait 
@@ -354,10 +363,6 @@ body {
 .post-grid-card__title {
   text-align: center;
   width: 100%;
-}
-
-body {
-  padding-bottom: 1000px;
 }
 
 .cta-subscribe {
