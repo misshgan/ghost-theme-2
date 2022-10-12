@@ -2,7 +2,7 @@
 
 .posts-section {
 	width: 100%;
-	padding: 8rem 1.5%;
+	padding: 15rem 1.5%;
 
 	&__header {
 		display: flex;
@@ -117,6 +117,7 @@
 	&__title {
 		
 		& a {
+			word-break: break-word;
 			text-decoration: none;
 			font-family: 'Roboto';
 			font-weight: 700;
@@ -147,3 +148,85 @@
 		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	}
 }
+
+
+// Post grid ********************************************** Post grid //
+
+.posts-grid-container {
+	
+	margin: 0 1.5%;
+}
+
+.posts-grid-wrapper {
+	
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
+	
+}
+.posts-grid__background {
+	width: 100%;
+	filter: brightness(0.6) blur(3px);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 1;
+}
+.posts-grid {
+	padding: 20rem 1.5%;
+	position: relative;
+	z-index: 2;
+	max-width: 1140px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 3.5rem;
+	
+}
+
+.post-grid-card {
+	height: 30rem;
+	width: 100%;
+	border-radius: 20px;
+	position: relative;
+	cursor: pointer;
+	
+
+	&:hover .post-grid-card__placeholder {
+		opacity: 1;
+	}
+
+	&:hover {
+		box-shadow: rgba(255, 255, 255, 0.147) 0px 7px 29px 0px;
+	}
+
+	&__placeholder {
+		padding: 1.5rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		border-radius: 20px;
+		background-color: rgba(0, 0, 0, 0.616);
+		color: #fff;
+		transition: all .3s;
+		opacity: 0;
+	}
+
+	&__title {
+		text-align: center;
+		width: 100%;
+	}
+}
+
+body {
+	padding-bottom: 1000px;
+}
+

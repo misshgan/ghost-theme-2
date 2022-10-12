@@ -17,12 +17,9 @@
 	z-index: 1;
 	filter: brightness(0.4);
 	border-radius: 10px;
-
-	transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
 }
 
 .upper-header {
-	transform: translate3d(0, calc(var(--scrollTop) / 9), 0);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

@@ -1,12 +1,12 @@
 <div class="posts-container">
-	<div class="posts-section">
-		<div class="posts-section__header">
+	<div class="posts-section" >
+		<div class="posts-section__header " >
 			<h2 class="posts-section-block__title">Newest posts</h2>
 			<a class="posts-section-block__show-all">View all...</a>
 		</div>
 		
 		<div class="posts">
-			{{#get "posts" include="tags, authors" limit="3"}}
+			{{#get "posts" include="tags, authors" limit="3"}} 
 				{{#foreach posts}}
 					{{> small-post-card}}
 				{{/foreach}}
