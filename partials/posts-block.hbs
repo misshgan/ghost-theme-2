@@ -6,9 +6,9 @@
 		</div>
 		
 		<div class="posts">
-			{{#get "posts" include="tags, authors" limit="3"}} 
+			{{#get "posts" include="tags, authors" filter="tag:{{@custom.featured_post_tag}}" limit="1"}} 
 				{{#foreach posts}}
-					{{> small-post-card}}
+					{{> post-card}}
 				{{/foreach}}
 			{{/get}}
 		</div>

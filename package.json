@@ -78,6 +78,18 @@
             "xl": {
                 "width": 2000
             }
-        }
+        },
+		"custom": {
+			"email_signup_text": {
+                "type": "text",
+                "group": "homepage"
+            },
+			"header_background_image": {
+				"type": "image"
+			},
+			"featured_post_tag": {
+				"type": "text"
+			}
+		} 
     }
 }

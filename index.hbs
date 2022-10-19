@@ -1,7 +1,10 @@
 {{!< default}}
 
 <header class="header" >
-		<div class="header-background" data-parallax="scroll" data-image-src="{{@site.cover_image}}" data-z-index="0" data-speed="0.5"></div> 
+		
+		{{#if @custom.header_background_image}}
+		<div class="header-background" data-parallax="scroll" data-image-src="{{@custom.header_background_image}}" data-z-index="0" data-speed="0.5"></div> 
+		{{/if}}
 		<div class="upper-header">
 			<div class="upper-header__logo-title">
 				{{#if @site.logo}}
@@ -36,8 +39,15 @@
 		</div>
 	</header>
 
-{{> posts-block}}
+{{!-- <div class="selected-post">
+	{{#get "posts" filter="tags:[News,video]" limit="3"}}
+		{{#foreach posts}}
+			<h1 class="1">{{title}}</h1>
+		{{/foreach}}
+	{{/get}}
+</div> --}}
 
+{{> posts-block}}
 
 <div class="posts-grid-container">
 	<div class="posts-grid-wrapper">
