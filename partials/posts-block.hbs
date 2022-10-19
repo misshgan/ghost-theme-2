@@ -5,7 +5,7 @@
 			<a class="posts-section-block__show-all">View all...</a>
 		</div>
 		
-		<div class="posts">
+		<div class="posts" style="display: flex;">
 			{{#get "posts" include="tags, authors" filter="tag:{{@custom.featured_post_tag}}" limit="1"}} 
 				{{#foreach posts}}
 					{{> post-card}}
