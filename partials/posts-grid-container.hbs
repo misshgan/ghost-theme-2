@@ -1,24 +1,30 @@
 <div class="posts-grid-container">
-	<div class="posts-grid-wrapper">
-		<div class="posts-grid__background" data-parallax="scroll" data-image-src="{{@site.cover_image}}" data-z-index="0" data-speed="0.5"></div>
-		<div class="posts-grid">
-			{{#foreach posts}}
-				{{#if feature_image}}
-				<div class="post-grid-card" style="background-image: url({{feature_image}}); background-size: cover; background-position: center;">
-					<a href="{{url}}">
-						<div class="post-grid-card__placeholder">
-							<h3 class="post-grid-card__title">{{title}}</h3>
-						</div>
-					</a>
-				</div>
-				{{else}}
-				<div class="post-grid-card" style="background-image: url(/Placeholder-_-Begrippenlijst.svg); background-size: cover; background-position: center;">
+	{{!-- {{#if @custom.most_recent_posts_with_given_tag_image}}
+	<div class="posts-grid__background" ></div>
+	{{/if}} --}}
+	<div class="posts-section__header mw-1140" >
+		<h2 class="posts-section-block__title">Selected posts</h2>
+		<a class="posts-section-block__show-all">View all...</a>
+	</div>
+	<div class="posts-grid">
+		{{#get "posts" include="tags, authors" filter="tag:{{@custom.enter_tag_slug_tag_for_section_above}}" limit="all"}}
+		{{#foreach posts}}
+			{{#if feature_image}}
+			<div class="post-grid-card" style="background-image: url({{feature_image}}); background-size: cover; background-position: center;">
+				<a href="{{url}}">
 					<div class="post-grid-card__placeholder">
 						<h3 class="post-grid-card__title">{{title}}</h3>
 					</div>
-				</div>
-				{{/if}}
-			{{/foreach}}
-		</div>
+				</a>
+			</div>
+			{{else}}
+			<div class="post-grid-card" style="background-image: url(/Placeholder-_-Begrippenlijst.svg); background-size: cover; background-position: center;">
+				<div class="post-grid-card__placeholder">
+					<h3 class="post-grid-card__title">{{title}}</h3>
+				</div> 	 
+			</div>
+			{{/if}}
+		{{/foreach}}
+		{{/get}}
 	</div>
 </div>

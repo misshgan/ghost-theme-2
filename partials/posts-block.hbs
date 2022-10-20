@@ -1,12 +1,12 @@
 <div class="posts-container">
 	<div class="posts-section" >
 		<div class="posts-section__header " >
-			<h2 class="posts-section-block__title">Newest posts</h2>
-			<a class="posts-section-block__show-all">View all...</a>
+			<h2 class="posts-section-block__title">Selected post</h2>
+			{{!-- <a class="posts-section-block__show-all">View all...</a> --}}
 		</div>
 		
 		<div class="posts" style="display: flex;">
-			{{#get "posts" include="tags, authors" filter="tag:{{@custom.featured_post_tag}}" limit="1"}} 
+			{{#get "posts" include="tags, authors" filter="tag:{{@custom.enter_tag_slug_for_post_to_be_displayed}}" limit="1"}} 
 				{{#foreach posts}}
 					{{> post-card}}
 				{{/foreach}}

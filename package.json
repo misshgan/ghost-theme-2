@@ -87,8 +87,32 @@
 			"header_background_image": {
 				"type": "image"
 			},
-			"featured_post_tag": {
-				"type": "text"
+			"show_latest_post_with_selected_tag": {
+				"type": "boolean",
+				"default": "false"
+			},
+			"enter_tag_slug_for_post_to_be_displayed": {
+				"type": "text",
+				"default": "tutorials"
+			},
+			"most_recent_posts_with_given_tag_image": {
+				"type": "image"
+			},
+			"show_latest_posts_with_selected_tag_section": {
+				"type": "boolean",
+				"default": "false"
+			},
+			"enter_tag_slug_tag_for_section_above": {
+				"type": "text",
+				"default": "tutorials"
+			},
+			"show_featured_posts_section": {
+				"type": "boolean",
+				"default": "true"
+			},
+			"show_other_posts_section": {
+				"type": "boolean",
+				"default": "true"
 			}
 		} 
     }
