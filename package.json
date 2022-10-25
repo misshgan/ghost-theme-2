@@ -113,7 +113,28 @@
 			"show_other_posts_section": {
 				"type": "boolean",
 				"default": "true"
+			},
+			"selected_post_section_position": {
+				"type": "select",
+				"options": ["1", "2", "3", "4"],
+				"default": "1"
+			},
+			"featured_posts_section_position": {
+				"type": "select",
+				"options": ["1", "2", "3", "4"],
+				"default": "2"
+			},
+			"selected_posts_section_position": {
+				"type": "select",
+				"options": ["1", "2", "3", "4"],
+				"default": "3"
+			},
+			"other_posts_section_position": {
+				"type": "select",
+				"options": ["1", "2", "3", "4"],
+				"default": "4"
 			}
+
 		} 
     }
 }

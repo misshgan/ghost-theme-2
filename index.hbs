@@ -35,50 +35,106 @@
 		</div>
 	</header>
 
-{{#if @custom.show_latest_post_with_selected_tag}}
-{{> posts-block}}
-{{/if}}
-
-{{#if @custom.show_featured_posts_section}}
-<div class="posts-container" >
-	<div class="posts-section">
-		<div class="posts-section__header " >
-			<h2 class="posts-section-block__title">Featured posts</h2>
-			<a class="posts-section-block__show-all">View all...</a>
+<div class="main-flex-container">
+	{{#if @custom.show_latest_post_with_selected_tag}}
+		<div class="posts-container" style="order: {{@custom.selected_post_section_position}};">
+			<div class="posts-section" >
+				<div class="posts-section__header " >
+					<h2 class="posts-section-block__title">Selected post</h2>
+					{{!-- <a class="posts-section-block__show-all">View all...</a> --}}
+				</div>
+				
+				<div class="posts" style="display: flex;">
+					{{#get "posts" include="tags, authors" filter="tag:{{@custom.enter_tag_slug_for_post_to_be_displayed}}" limit="1"}} 
+						{{#foreach posts}}
+							{{> post-card}}
+						{{/foreach}}
+					{{/get}}
+				</div>
+			</div>
 		</div>
-		
-		<div class="posts">
-			{{#get "posts" include="tags, authors" filter="featured:true" limit="3"}} 
-				{{#foreach posts}}
-					{{> small-post-card}}
-				{{/foreach}}
-			{{/get}}
+	{{/if}}
+
+	{{#if @custom.show_featured_posts_section}}
+	<div class="posts-container" style="order: {{@custom.featured_posts_section_position}};">
+		<div class="posts-section">
+			<div class="posts-section__header " >
+				<h2 class="posts-section-block__title">Featured posts</h2>
+				<a class="posts-section-block__show-all">View all...</a>
+			</div>
+			
+			<div class="posts">
+				{{#get "posts" include="tags, authors" filter="featured:true" limit="3"}} 
+					{{#foreach posts}}
+						{{> small-post-card}}
+					{{/foreach}}
+				{{/get}}
+			</div>
 		</div>
 	</div>
-</div>
-{{/if}}
+	{{/if}}
 
-{{#if @custom.show_latest_posts_with_selected_tag_section}}
-{{> posts-grid-container}}
-{{/if}}
-
-{{#if @custom.show_other_posts_section}}
-<div class="posts-container">
-	<div class="posts-section" >
-		<div class="posts-section__header " >
-			<h2 class="posts-section-block__title">Other posts</h2>
-			<a class="posts-section-block__show-all">View all...</a>
-		</div>
-		
-		<div class="posts">
-			{{#get "posts" include="tags, authors" filter="featured:false+tags:-[{{@custom.enter_tag_slug_for_post_to_be_displayed}},{{@custom.enter_tag_slug_tag_for_section_above}}]" limit="3"}} 
+	{{#if @custom.show_latest_posts_with_selected_tag_section}}
+		<div class="posts-grid-container" style="order: {{@custom.selected_posts_section_position}};" {{#if @custom.most_recent_posts_with_given_tag_image}} data-parallax="scroll" data-image-src="{{@custom.most_recent_posts_with_given_tag_image}}" data-z-index="0" data-speed="0.5"{{/if}}>
+		{{#if @custom.most_recent_posts_with_given_tag_image}}
+			<style>
+				.posts-grid-container {
+					padding: 7rem 3rem;
+					max-width: 1400px;
+				}
+				.posts-grid-container .posts-section-block__title {
+					color: #fff;
+				}
+			</style>
+		{{/if}}
+			<div class="posts-section__header mw-1140" >
+				<h2 class="posts-section-block__title">Selected posts</h2>
+				<a class="posts-section-block__show-all">View all...</a>
+			</div>
+			<div class="posts-grid">
+				{{#get "posts" include="tags, authors" filter="tag:{{@custom.enter_tag_slug_tag_for_section_above}}" limit="all"}}
 				{{#foreach posts}}
-					{{> small-post-card}}
+					{{#if feature_image}}
+					<div class="post-grid-card" style="background-image: url({{feature_image}}); background-size: cover; background-position: center;">
+						<a href="{{url}}">
+							<div class="post-grid-card__placeholder">
+								<h3 class="post-grid-card__title">{{title}}</h3>
+							</div>
+						</a>
+					</div>
+					{{else}}
+					<div class="post-grid-card" style="background-image: url(/Placeholder-_-Begrippenlijst.svg); background-size: cover; background-position: center;">
+						<div class="post-grid-card__placeholder">
+							<h3 class="post-grid-card__title">{{title}}</h3>
+						</div> 	 
+					</div>
+					{{/if}}
 				{{/foreach}}
-			{{/get}}
+				{{/get}}
+			</div>
 		</div>
-	</div>
+	{{/if}}
+
+	{{#if @custom.show_other_posts_section}}
+		<div class="posts-container" style="order: {{@custom.other_posts_section_position}};">
+			<div class="posts-section" >
+				<div class="posts-section__header " >
+					<h2 class="posts-section-block__title">Other posts</h2>
+					<a class="posts-section-block__show-all">View all...</a>
+				</div>
+				
+				<div class="posts">
+					{{#get "posts" include="tags, authors" filter="featured:false+tags:-[{{@custom.enter_tag_slug_for_post_to_be_displayed}},{{@custom.enter_tag_slug_tag_for_section_above}}]" limit="3"}} 
+						{{#foreach posts}}
+							{{> small-post-card}}
+						{{/foreach}}
+					{{/get}}
+				</div>
+			</div>
+		</div>
+	{{/if}}
 </div>
-{{/if}}
+
+
 
 {{> cta-subscribe}}
