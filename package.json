@@ -89,7 +89,7 @@
 			},
 			"show_latest_post_with_selected_tag": {
 				"type": "boolean",
-				"default": "false"
+				"default": true
 			},
 			"enter_tag_slug_for_post_to_be_displayed": {
 				"type": "text",
@@ -100,7 +100,7 @@
 			},
 			"show_latest_posts_with_selected_tag_section": {
 				"type": "boolean",
-				"default": "false"
+				"default": true
 			},
 			"enter_tag_slug_tag_for_section_above": {
 				"type": "text",
@@ -108,11 +108,11 @@
 			},
 			"show_featured_posts_section": {
 				"type": "boolean",
-				"default": "true"
+				"default": true
 			},
 			"show_other_posts_section": {
 				"type": "boolean",
-				"default": "true"
+				"default": true
 			},
 			"selected_post_section_position": {
 				"type": "select",
